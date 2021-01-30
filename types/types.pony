@@ -12,15 +12,21 @@ primitive ColourList
   end 
 
 interface HasName
-  fun name(): String
+  fun name(): String => 'Bob'
 
 interface HasAge
-  fun age(): U32
+  fun age(): U32 => 42
 
 interface HasFeelings
-  fun feelings(): String
+  fun feelings(): String => "AWESOME! WOO-HOO!"
 
 type Person is (HasName & HasAge & HasFeelings) 
+
+type SetIs[A] is HashSet[A, HashIs[A]]
+HashSet[A, HashIs[A!]]
+
+
+
 
 
 
