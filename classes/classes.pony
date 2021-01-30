@@ -60,8 +60,21 @@ trait Named
 trait Trajectory
   fun move(): Bool => false
   
-class Lunar is (Named & Bald)
+class Lunar is (Named & Trajectory)
 
+trait Named
+  fun name(): String => "Bob"
+
+trait Bald is Named
+  fun hair(): Bool => false
+
+class Lunar is Bald
+
+class Larry
+  fun name(): String => "Larry"
+
+ interface HasName
+   fun name(): String 
                       
 
 
