@@ -14,7 +14,10 @@ class Planet
 
   fun radiator(): U64 => _radiation_level
 
-  fun ref set_radiator(to: U64 = 0): U64 => _radiation_level = to
+  fun ref set_radiator(to: U64 = 0):
+     U64 => _radiation_level = to
+
+
       
 
   let defaultPlanet = Planet("Neptune")
@@ -32,6 +35,34 @@ class Venus
 class Universe
   let _uranus: Uranus = Uranus
   let _venus: Venus = Venus
+
+actor Saturn
+  let planetType: String
+  var _radiation_level: U64 = 0
+
+  new create(planetType': String) =>
+    planetType = planetType'
+
+  be radiate(radiationAmount: U64) =>
+    _radiation_level = _radiation_level - radiationAmount.min(_radiation_level)
+
+actor Main
+  new create(env: Env) =>
+    call_me_later(env)
+      env.out.print("This is Printed 1st")
+
+  be call_me_later(env: Env) =>
+    env.out.print("This is printed last")
+
+trait Named
+  fun name(): String => "Lunar Landing"
+
+trait Trajectory
+  fun move(): Bool => false
+  
+class Lunar is (Named & Bald)
+
+                      
 
 
 
