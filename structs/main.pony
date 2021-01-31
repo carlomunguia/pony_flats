@@ -8,9 +8,8 @@ struct Outer
 struct Pointer[A]
 
   new create() =>
-
     compile_intrinsic
 
   new _alloc(len: USize)
-
     compile_intrinsic  
+

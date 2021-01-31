@@ -25,7 +25,8 @@ type Person is (HasName & HasAge & HasFeelings)
 type SetIs[A] is HashSet[A, HashIs[A]]
 HashSet[A, HashIs[A!]]
 
-
+type Map(K: (Hashable box & Comparable[K] box), V)
+ is HashMap[K,V, HashEq[K]]
 
 
 
