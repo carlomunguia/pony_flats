@@ -114,4 +114,103 @@ let result =
       env.out.print("overflow detected")     
     end
 
+// Control Structures
+
+if a > b then
+  env.out.print("a is bigger")
+end
+
+if a > b then 
+  env.out.print("a is bigger")
+else
+  env.out.print("a is not bigger")
+
+if a == b then
+  env.out.print("they are the same!")
+else  
+  if a > b then
+    env.out.print("a is bigger")
+  else 
+    env.out.print("b is bigger")
+    end
+end
+
+if a == b then  
+  env.out.print("they are the same")
+elseif a > b then
+  env.out.print("a is bigger")
+else
+  env.out.print("b bigger")
+end
+
+x = 1 + if lots then 100 else 2 end
+
+var x: (String | Bool) =
+  if friendly then
+    "Hello"
+  else
+    false
+  end 
+
+  var x: (String | None) = 
+    if friendly then
+      "Hello"
+  end
+
+actor Main
+  new create(env: Env) =>
+    var x: (String | None) =
+      for name in["Bob"; "Fred"; "Sarah"].values() do
+        name
+      end
+    match x
+    | let s: String => env.out.print("x is " + s)
+    | None => env.out.print("x is none")
+    end 
+
+actor Main
+  new create(env: Env) =>
+    var x:(String | None) = 
+      for name in Array[String].values() do
+        name
+      end
+    match x
+    | let s: String => env.out.print("x is " + s)
+    | None => env.out.print("x is gone")
+    end 
+
+actor Main
+  new create(env: Env) =>
+    var x: String =
+      for name in Array[String].values() do
+        name
+      else
+        "no names!"
+      end 
+    env.out.print("x is " + s)
+
+var count: U32 = 1
+
+while count <= 10 do
+  env.out.print(count.string())
+  count = count + 1
+end
+
+var name = 
+  while moreNames() do
+    var name' = getName()
+    if name' == "Jack" or name' == "Jill" then
+      break name'
+    end
+    name'
+  else
+    "Herbert"
+  end      
+
+
+
+
+
+
+
     
