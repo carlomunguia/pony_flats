@@ -205,7 +205,14 @@ var name =
     name'
   else
     "Herbert"
-  end      
+  end 
+
+  class C
+    fun add(x: U32, y: U32): U32 =>
+      x + y 
+    fun nop() =>
+      add(1, 2)   
+       
 
 
 
